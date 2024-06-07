@@ -1,10 +1,21 @@
+import { useAppSelector } from '../../app/store/store';
 import { ICoin } from '../../entities';
+import { TableRaw } from './components';
+import { transformCoins } from './helpers';
 
 interface ICoinsTableProps {
     coins: ICoin[];
 }
 
 export function CoinsTable({ coins }: ICoinsTableProps) {
+    const { searchedCoins, sortOrder } = useAppSelector(
+        (state) => state.coinsFilters,
+    );
+    coins = transformCoins(coins, {
+        sortOrder,
+        searchedCoins,
+    });
+
     return (
         <table>
             <thead>
@@ -20,15 +31,7 @@ export function CoinsTable({ coins }: ICoinsTableProps) {
             </thead>
             <tbody>
                 {coins.map((coin) => (
-                    <tr key={coin.id}>
-                        <td>{coin.rank}</td>
-                        <td>{coin.name}</td>
-                        <td>{coin.symbol}</td>
-                        <td>{coin.priceUsd}</td>
-                        <td>{coin.marketCapUsd}</td>
-                        <td>{coin.changePercent24Hr}</td>
-                        <td></td>
-                    </tr>
+                    <TableRaw key={coin.id} coin={coin} />
                 ))}
             </tbody>
         </table>

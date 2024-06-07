@@ -1,7 +1,7 @@
 import { useAppSelector } from '../app/store/store';
 import { useGetCoinsQuery } from '../entities';
 import { Loader } from '../shared';
-import { CoinsTable } from '../widgets/CoinsTable/CoinsTable';
+import { CoinsTable } from '../widgets';
 
 export function CoinsPage() {
     const { limit, searchedCoins, sortOrder } = useAppSelector(
