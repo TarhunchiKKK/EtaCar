@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IResponse, SERVER_URL } from '../../../shared';
+import { IResponse, API_URL } from '../../../shared';
 import { ICoin } from '../models';
 
 export const coinsApi = createApi({
     reducerPath: 'coins/api',
 
     baseQuery: fetchBaseQuery({
-        baseUrl: `${SERVER_URL}/assets`,
+        baseUrl: `${API_URL}/assets`,
     }),
 
     tagTypes: ['Coin'],

@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
-import { coinsApi } from '../../entities';
+import { coinsApi, coinsFiltersSlice } from '../../entities';
 
 export const store = configureStore({
     reducer: {
+        [coinsFiltersSlice.name]: coinsFiltersSlice.reducer,
         [coinsApi.reducerPath]: coinsApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
