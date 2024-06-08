@@ -1,15 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CoinsSortOrder, ICoinsFiltersState } from '../types';
+import { ICoinsState } from './types';
+import { CoinHistoryPeriod, CoinsSortOrder } from '../types';
 
-const initialState: ICoinsFiltersState = {
+const initialState: ICoinsState = {
     limit: 20,
     offset: 0,
     searchedCoins: '',
     sortOrder: CoinsSortOrder.priceAsc,
+    period: CoinHistoryPeriod.Day,
 };
 
-export const coinsFiltersSlice = createSlice({
-    name: 'coinsFilters',
+export const coinsSlice = createSlice({
+    name: 'coins',
     initialState,
     reducers: {
         setLimit: (state, action: PayloadAction<number>) => {
@@ -24,8 +26,10 @@ export const coinsFiltersSlice = createSlice({
         setOffset: (state, action: PayloadAction<number>) => {
             state.offset = action.payload;
         },
+        setPeriod: (state, action: PayloadAction<CoinHistoryPeriod>) => {
+            state.period = action.payload;
+        },
     },
 });
 
-export const { setLimit, setSearchedCoins, setSortOrder, setOffset } =
-    coinsFiltersSlice.actions;
+export const { setLimit, setSearchedCoins, setSortOrder, setOffset, setPeriod } = coinsSlice.actions;

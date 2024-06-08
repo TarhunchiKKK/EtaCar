@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { addCoin, ICoin } from '../../../../entities';
-import { AddButton } from '../AddButton';
-import { CoinIcon } from '../CoinIcon';
-import { formatNumber } from '../../../../shared/helpers/FormatNumber';
+import { CoinIcon } from '../../../../shared/components/CoinIcon';
+import { formatNumber } from '../../../../shared/helpers/formatNumber';
+import { Button } from '../../../../shared';
+import { useNavigate } from 'react-router-dom';
 
 interface ITableRawProps {
     coin: ICoin;
@@ -10,9 +11,12 @@ interface ITableRawProps {
 
 export function TableRaw({ coin }: ITableRawProps) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     return (
-        <tr className='py-2 border-y-2 border-gray-200 hover:bg-gray-100'>
+        <tr
+            className='py-2 border-y-2 border-gray-200 hover:bg-gray-100 cursor-pointer'
+            onClick={() => navigate(`/coins/${coin.id}`)}>
             <td>
                 <CoinIcon rank={coin.rank} />
             </td>
@@ -35,7 +39,7 @@ export function TableRaw({ coin }: ITableRawProps) {
             </td>
 
             <td>
-                <AddButton handleClick={() => dispatch(addCoin(coin))} />
+                <Button content='Add' color='rgb(74 222 128)' handleClick={() => dispatch(addCoin(coin))} />
             </td>
         </tr>
     );

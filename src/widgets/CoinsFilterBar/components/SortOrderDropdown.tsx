@@ -6,7 +6,7 @@ import { DropdownOptions } from '../../../shared';
 
 export function SortOrderDropdown() {
     const dispatch = useDispatch();
-    const { sortOrder: currentSortOrder } = useAppSelector((state) => state.coinsFilters);
+    const { sortOrder: currentSortOrder } = useAppSelector((state) => state.coins);
 
     const getSortOrders = useCallback(() => {
         const sortOrders: JSX.Element[] = [];

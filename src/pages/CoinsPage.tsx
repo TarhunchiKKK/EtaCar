@@ -7,10 +7,9 @@ import { useDispatch } from 'react-redux';
 
 export function CoinsPage() {
     const dispatch = useDispatch();
-    const { limit, offset } = useAppSelector((state) => state.coinsFilters);
+    const { limit, offset } = useAppSelector((state) => state.coins);
     const { data: coinsCount } = useGetCoinsCountQuery();
     const { data: coins, isLoading, isFetching } = useGetCoinsQuery({ limit, offset });
-    console.log(coinsCount);
     return (
         <>
             <section className='mb-8'>

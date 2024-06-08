@@ -4,7 +4,7 @@ import { useAppSelector } from '../../../app/store/store';
 
 export function Search() {
     const dispatch = useDispatch();
-    const { searchedCoins } = useAppSelector((state) => state.coinsFilters);
+    const { searchedCoins } = useAppSelector((state) => state.coins);
     return (
         <input
             type='text'

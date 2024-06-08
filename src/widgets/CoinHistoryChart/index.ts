@@ -1,0 +1,1 @@
+export { CoinHistoryChart } from './CoinHistoryChart';
