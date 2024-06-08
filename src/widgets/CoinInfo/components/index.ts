@@ -1,0 +1,1 @@
+export { CoinPropertiesList } from './CoinPropertiesList';

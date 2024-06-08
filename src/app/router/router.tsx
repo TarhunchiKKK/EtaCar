@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { CoinsPage, Layout } from '../../pages';
+import { CoinPage } from '../../pages/CoinPage';
 
 export const router = createBrowserRouter([
     {
@@ -8,7 +9,12 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
+                path: '/coins',
                 element: <CoinsPage />,
+            },
+            {
+                path: '/coins/:id',
+                element: <CoinPage />,
             },
         ],
     },

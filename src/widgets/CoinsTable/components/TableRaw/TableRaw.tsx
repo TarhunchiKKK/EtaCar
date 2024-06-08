@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { addCoin, ICoin } from '../../../../entities';
-import { AddButton } from '../AddButton';
-import { CoinIcon } from '../CoinIcon';
-import { formatNumber } from '../../../../shared/helpers/FormatNumber';
+import { CoinIcon } from '../../../../shared/components/CoinIcon';
+import { formatNumber } from '../../../../shared/helpers/formatNumber';
+import { Button } from '../../../../shared';
 
 interface ITableRawProps {
     coin: ICoin;
@@ -35,7 +35,7 @@ export function TableRaw({ coin }: ITableRawProps) {
             </td>
 
             <td>
-                <AddButton handleClick={() => dispatch(addCoin(coin))} />
+                <Button content='Add' color='rgb(74 222 128)' handleClick={() => dispatch(addCoin(coin))} />
             </td>
         </tr>
     );
