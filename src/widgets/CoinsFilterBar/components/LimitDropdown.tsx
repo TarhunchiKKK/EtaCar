@@ -6,7 +6,7 @@ import { setLimit } from '../../../entities';
 
 export function LimitDropdown() {
     const dispatch = useDispatch();
-    const { limit } = useAppSelector((state) => state.coinsFilters);
+    const { limit } = useAppSelector((state) => state.coins);
 
     const getLimits = useCallback(() => {
         let counter: number = 20;

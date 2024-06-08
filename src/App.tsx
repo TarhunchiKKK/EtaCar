@@ -1,11 +1,17 @@
+import React from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './app';
-import { CoinHistoryChart } from './widgets';
-import { CoinPage } from './pages/CoinPage';
+import { Provider } from 'react-redux';
+import { store } from './app/index.ts';
 
 function App() {
-    // return <RouterProvider router={router} />;
-    return <CoinPage />;
+    return (
+        <React.StrictMode>
+            <Provider store={store}>
+                <RouterProvider router={router} />
+            </Provider>
+        </React.StrictMode>
+    );
 }
 
 export default App;
