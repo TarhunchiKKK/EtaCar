@@ -1,10 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { Layout } from '../../pages';
+import { CoinsPage, Layout } from '../../pages';
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Layout />,
-        children: [],
+        children: [
+            {
+                index: true,
+                element: <CoinsPage />,
+            },
+        ],
     },
 ]);
