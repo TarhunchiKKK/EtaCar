@@ -1,2 +1,2 @@
-export { coinsApi, useGetCoinsQuery } from './CoinsApi';
-export { coinsFiltersSlice } from './CoinsSlice';
+export { coinsApi, useGetCoinsQuery } from './coinsApi';
+export * from './coinsFiltersSlice';

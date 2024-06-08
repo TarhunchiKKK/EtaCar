@@ -3,6 +3,7 @@ import { CoinsSortOrder, ICoinsFiltersState } from '../types';
 
 const initialState: ICoinsFiltersState = {
     limit: 20,
+    offset: 0,
     searchedCoins: '',
     sortOrder: CoinsSortOrder.priceAsc,
 };
@@ -20,8 +21,11 @@ export const coinsFiltersSlice = createSlice({
         setSortOrder: (state, action: PayloadAction<CoinsSortOrder>) => {
             state.sortOrder = action.payload;
         },
+        setOffset: (state, action: PayloadAction<number>) => {
+            state.offset = action.payload;
+        },
     },
 });
 
-export const { setLimit, setSearchedCoins, setSortOrder } =
+export const { setLimit, setSearchedCoins, setSortOrder, setOffset } =
     coinsFiltersSlice.actions;

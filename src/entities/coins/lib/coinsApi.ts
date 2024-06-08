@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IResponse, API_URL } from '../../../shared';
-import { ICoin } from '../models';
+import { ICoin, ICoinsSearchOptions } from '../types';
 
 export const coinsApi = createApi({
     reducerPath: 'coins/api',
@@ -14,11 +14,12 @@ export const coinsApi = createApi({
     refetchOnFocus: true,
 
     endpoints: (builder) => ({
-        getCoins: builder.query<ICoin[], number>({
-            query: (limit: number = 20) => ({
+        getCoins: builder.query<ICoin[], ICoinsSearchOptions>({
+            query: (options: ICoinsSearchOptions) => ({
                 url: '',
                 params: {
-                    limit: limit,
+                    limit: options.limit,
+                    offset: options.offset,
                 },
             }),
             transformResponse: (response: IResponse<ICoin[]>) => response.data,
