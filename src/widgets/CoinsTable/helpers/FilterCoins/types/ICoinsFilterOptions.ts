@@ -1,6 +1,6 @@
 import { CoinsSortOrder } from '../../../../../entities';
 
-export interface ICoinsTransformOptions {
+export interface ICoinsFilterOptions {
     sortOrder: CoinsSortOrder;
     searchedCoins: string;
 }

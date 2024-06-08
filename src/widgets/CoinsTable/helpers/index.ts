@@ -1,1 +1,1 @@
-export * from './TransformCoins/transfomCoins';
+export * from './FilterCoins';

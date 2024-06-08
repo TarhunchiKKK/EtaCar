@@ -9,7 +9,7 @@ export function LimitDropdown() {
     const { limit } = useAppSelector((state) => state.coinsFilters);
 
     const getLimits = useCallback(() => {
-        let counter: number = 5;
+        let counter: number = 20;
         const limits: JSX.Element[] = [];
         for (let i = 0; i < 10; i++) {
             limits.push(
@@ -17,14 +17,14 @@ export function LimitDropdown() {
                     {counter}
                 </option>,
             );
-            counter += 5;
+            counter += 10;
         }
         return limits;
     }, []);
 
     return (
-        <div className='flex flex-col items-start gap-2'>
-            <p>Показывать:</p>
+        <div className='w-max flex flex-col items-start gap-2'>
+            <p>Show:</p>
             <select
                 className='w-full rounded-md px-2 py-1 outline-none border shadow-md'
                 defaultValue={limit}

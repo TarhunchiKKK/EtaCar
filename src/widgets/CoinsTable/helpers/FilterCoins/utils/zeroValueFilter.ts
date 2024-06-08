@@ -15,5 +15,9 @@ export function zeroValueFilter(coin: ICoin): boolean {
         return false;
     }
 
+    if (Math.abs(+coin.maxSupply) <= zeroValue) {
+        return false;
+    }
+
     return true;
 }

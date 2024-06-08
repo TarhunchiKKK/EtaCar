@@ -9,11 +9,18 @@ export const coinsApi = createApi({
         baseUrl: `${API_URL}/assets`,
     }),
 
-    tagTypes: ['Coin'],
-
     refetchOnFocus: true,
 
     endpoints: (builder) => ({
+        getCoinsCount: builder.query<number, void>({
+            query: () => ({
+                url: '',
+                params: {
+                    limit: 2000,
+                },
+            }),
+            transformResponse: (response: IResponse<ICoin[]>) => response.data.length,
+        }),
         getCoins: builder.query<ICoin[], ICoinsSearchOptions>({
             query: (options: ICoinsSearchOptions) => ({
                 url: '',
@@ -23,9 +30,8 @@ export const coinsApi = createApi({
                 },
             }),
             transformResponse: (response: IResponse<ICoin[]>) => response.data,
-            providesTags: ['Coin'],
         }),
     }),
 });
 
-export const { useGetCoinsQuery } = coinsApi;
+export const { useGetCoinsQuery, useGetCoinsCountQuery } = coinsApi;
