@@ -1,0 +1,1 @@
+export { PopularCoinInfo } from './PopularCoinInfo';

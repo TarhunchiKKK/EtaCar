@@ -41,6 +41,15 @@ export const coinsApi = createApi({
             }),
             transformResponse: (response: IResponse<ICoin>) => response.data,
         }),
+        getPopularCoins: builder.query<ICoin[], void>({
+            query: () => ({
+                url: '',
+                params: {
+                    limit: 3,
+                },
+            }),
+            transformResponse: (response: IResponse<ICoin[]>) => response.data,
+        }),
     }),
 });
 
@@ -80,4 +89,4 @@ export function useGetCoinHistoryQuery(coinId: string, period: CoinHistoryPeriod
     return { coinHistory, isLoading, isError };
 }
 
-export const { useGetCoinsQuery, useGetCoinsCountQuery, useGetOneCoinQuery } = coinsApi;
+export const { useGetCoinsQuery, useGetCoinsCountQuery, useGetOneCoinQuery, useGetPopularCoinsQuery } = coinsApi;

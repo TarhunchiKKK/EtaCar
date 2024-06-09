@@ -4,17 +4,12 @@ import { ICoin } from '../../coins';
 import { IPortfolioState } from '../types';
 
 function getInitialState(): IPortfolioState {
-    const localCoins: string | null = localStorage.getItem(
-        LOCALSTORAGE_PORTFOLIO_KEY,
-    );
+    const localCoins: string | null = localStorage.getItem(LOCALSTORAGE_PORTFOLIO_KEY);
     if (localCoins) {
         const coins: ICoin[] = JSON.parse(localCoins);
         return {
             coins: coins,
-            summary: coins.reduce<number>(
-                (acc, coin) => acc + coin.priceUsd,
-                0,
-            ),
+            summary: coins.reduce<number>((acc, coin) => acc + +coin.priceUsd, 0),
         };
     }
     return {
@@ -29,11 +24,8 @@ export const portfolioSlice = createSlice({
     reducers: {
         addCoin: (state, action: PayloadAction<ICoin>) => {
             state.coins.push(action.payload);
-            state.summary += action.payload.priceUsd;
-            localStorage.setItem(
-                LOCALSTORAGE_PORTFOLIO_KEY,
-                JSON.stringify(state.coins),
-            );
+            state.summary += +action.payload.priceUsd;
+            localStorage.setItem(LOCALSTORAGE_PORTFOLIO_KEY, JSON.stringify(state.coins));
         },
     },
 });
