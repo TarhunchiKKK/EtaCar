@@ -25,9 +25,9 @@ export function CoinInfo({ coin }: ICoinInfoProps) {
                 {/* Price and price change */}
                 <div className='flex flex-row gap-6 items-center'>
                     <h2 className='font-bold text-[36px]'>{`$${formatNumber(coin.priceUsd, 4)}`}</h2>
-                    <span
-                        style={{ color: +coin.changePercent24Hr < 0 ? 'red' : 'green' }}
-                        className='text-md'>{`${formatNumber(coin.changePercent24Hr, 3)}%`}</span>
+                    <span className='text-md' style={{ color: +coin.changePercent24Hr < 0 ? 'red' : 'green' }}>
+                        {`${formatNumber(coin.changePercent24Hr, 3)}%`}
+                    </span>
                 </div>
 
                 {/* Buttons */}

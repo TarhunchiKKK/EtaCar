@@ -17,7 +17,8 @@ export function TableRaw({ coin }: ITableRawProps) {
     return (
         <tr
             className='py-2 border-y-2 border-gray-200 hover:bg-gray-100 cursor-pointer'
-            onClick={() => navigate(`/coins/${coin.id}`)}>
+            onClick={() => navigate(`/coins/${coin.id}`)}
+        >
             <td>
                 <CoinIcon rank={coin.rank} />
             </td>

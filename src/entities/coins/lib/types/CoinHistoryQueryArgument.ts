@@ -27,8 +27,8 @@ export class CoinHistoryQueryArgument {
 
     get params() {
         return {
-            // start: this.start,
-            // end: this.end,
+            start: this.start,
+            end: this.end,
             interval: this.interval,
         };
     }

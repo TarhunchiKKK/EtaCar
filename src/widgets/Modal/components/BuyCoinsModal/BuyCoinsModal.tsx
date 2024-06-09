@@ -28,15 +28,17 @@ export function BuyCoinsModal({ coin }: IBuyCoinsModalProps) {
             {/* Price and price change */}
             <div className='flex flex-row gap-6 items-center mb-4'>
                 <h2 className='font-bold text-[36px]'>{`$${formatNumber(coin.priceUsd, 4)}`}</h2>
-                <span
-                    style={{ color: +coin.changePercent24Hr < 0 ? 'red' : 'green' }}
-                    className='text-md'>{`${formatNumber(coin.changePercent24Hr, 3)}%`}</span>
+                <span style={{ color: +coin.changePercent24Hr < 0 ? 'red' : 'green' }} className='text-md'>
+                    {`${formatNumber(coin.changePercent24Hr, 3)}%`}
+                </span>
             </div>
 
             <form className='w-full' onSubmit={handleSubmit}>
                 <div className='mb-4'>
                     <input
                         type='number'
+                        min={1}
+                        max={50}
                         value={count}
                         onChange={(e) => setCount(+e.target.value)}
                         placeholder='Input coins count...'
@@ -46,7 +48,8 @@ export function BuyCoinsModal({ coin }: IBuyCoinsModalProps) {
 
                 <button
                     type='submit'
-                    className='bg-green-400 block mx-auto w-[200px] sm:w-[320px] rounded-lg px-4 py-2'>
+                    className='bg-green-400 block mx-auto w-[200px] sm:w-[320px] rounded-lg px-4 py-2'
+                >
                     Buy coin
                 </button>
             </form>

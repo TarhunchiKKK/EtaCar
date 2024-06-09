@@ -28,7 +28,8 @@ export function LimitDropdown() {
             <select
                 className='w-full rounded-md px-2 py-1 outline-none border shadow-md'
                 defaultValue={limit}
-                onChange={(e) => dispatch(setLimit(+e.target.value))}>
+                onChange={(e) => dispatch(setLimit(+e.target.value))}
+            >
                 <DropdownOptions getOptions={getLimits} />
             </select>
         </div>

@@ -16,15 +16,6 @@ export const coinsApi = createApi({
     refetchOnFocus: true,
 
     endpoints: (builder) => ({
-        getCoinsCount: builder.query<number, void>({
-            query: () => ({
-                url: '',
-                params: {
-                    limit: 2000,
-                },
-            }),
-            transformResponse: (response: IResponse<ICoin[]>) => response.data.length,
-        }),
         getCoins: builder.query<ICoin[], IGetCoinsQueryArgument>({
             query: (options: IGetCoinsQueryArgument) => ({
                 url: '',
@@ -34,6 +25,18 @@ export const coinsApi = createApi({
                 },
             }),
             transformResponse: (response: IResponse<ICoin[]>) => response.data,
+        }),
+
+        /* The server used does not provide an endpoint for determining the number of coins (necessary for pagination). 
+        Therefore, the number of coins is determined in this way. */
+        getCoinsCount: builder.query<number, void>({
+            query: () => ({
+                url: '',
+                params: {
+                    limit: 2000,
+                },
+            }),
+            transformResponse: (response: IResponse<ICoin[]>) => response.data.length,
         }),
         getOneCoin: builder.query<ICoin, string>({
             query: (id: string) => ({
@@ -62,6 +65,8 @@ export const coinsApi = createApi({
     }),
 });
 
+/* From this endpoint comes a non-serializable object that breaks the store. 
+Therefore, the axios is used for this query. */
 export function useGetCoinHistoryQuery(coinId: string, period: CoinHistoryPeriod) {
     const [coinHistory, setCoinHistory] = useState<ICoinHistory[]>();
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -77,11 +82,7 @@ export function useGetCoinHistoryQuery(coinId: string, period: CoinHistoryPeriod
                 const response = await axios.get<IResponse<{ priceUsd: string; time: number }[]>>(
                     `${API_URL}/assets/${argument.id}/history`,
                     {
-                        params: {
-                            interval: argument.interval,
-                            start: argument.start,
-                            end: argument.end,
-                        },
+                        params: argument.params,
                     },
                 );
                 setCoinHistory(response.data.data.map((h) => ({ ...h, time: formatTime(new Date(h.time)) })));

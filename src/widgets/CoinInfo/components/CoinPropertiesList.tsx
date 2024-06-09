@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { ICoin } from '../../../entities';
 import { CoinProperty } from './CoinProperty';
 import { formatNumber } from '../../../shared/helpers/formatNumber';
-import { FaAngleLeft } from 'react-icons/fa6';
 
 interface ICoinProperiesListProps {
     coin: ICoin;

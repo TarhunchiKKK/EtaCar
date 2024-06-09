@@ -26,7 +26,8 @@ export function SortOrderDropdown() {
             <select
                 className='w-full rounded-md px-2 py-1 outline-none border shadow-md'
                 defaultValue={currentSortOrder}
-                onChange={(e) => dispatch(setSortOrder(e.target.value as CoinsSortOrder))}>
+                onChange={(e) => dispatch(setSortOrder(e.target.value as CoinsSortOrder))}
+            >
                 <DropdownOptions getOptions={getSortOrders} />
             </select>
         </div>
