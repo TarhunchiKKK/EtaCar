@@ -1,18 +1,19 @@
-import { useDispatch } from 'react-redux';
-import { addCoin, ICoin } from '../../entities';
+import { ICoin } from '../../entities';
 import { Button, CoinIcon } from '../../shared';
 import { formatNumber } from '../../shared/helpers/formatNumber';
 import { CoinPropertiesList } from './components';
+import { useContext } from 'react';
+import { ModalContext } from '../Modal';
 
 interface ICoinInfoProps {
     coin: ICoin;
 }
 
 export function CoinInfo({ coin }: ICoinInfoProps) {
-    const dispatch = useDispatch();
+    const { openBuyCoinsModal } = useContext(ModalContext);
 
     return (
-        <div className='py-4 px-1 md:px-3 w-full md:w-[470px] md:h-screen rounded-b-xl shadow-xl'>
+        <div className='py-4 px-1 md:px-3 w-full md:w-[470px] md:h-[580px] lg:h-[700px] rounded-b-xl shadow-xl'>
             <div className='flex flex-col items-start gap-2 sm:gap-4'>
                 {/* Icon, name and symbol */}
                 <div className='flex flex-row items-center gap-2'>
@@ -31,10 +32,11 @@ export function CoinInfo({ coin }: ICoinInfoProps) {
 
                 {/* Buttons */}
                 <div className='min-w-[75%] flex flex-row justify-between gap-2'>
-                    <Button content='Add' color='rgb(74 222 128)' handleClick={() => dispatch(addCoin(coin))} />
+                    <Button content='Add' color='rgb(74 222 128)' handleClick={() => openBuyCoinsModal(coin)} />
                     <Button content='Back' color='rgb(67 56 202)' handleClick={() => window.history.back()} />
                 </div>
 
+                {/* Change, supply... */}
                 <CoinPropertiesList coin={coin} />
             </div>
         </div>

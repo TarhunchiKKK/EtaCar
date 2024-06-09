@@ -17,11 +17,11 @@ export function CoinPage() {
     const { coinHistory, isLoading: isHistoryLoading } = useGetCoinHistoryQuery(coinId, period);
 
     return (
-        <section>
+        <section className='py-6'>
             <div className='container mx-auto px-2 md:px-0'>
                 {(isCoinLoading || isHistoryLoading) && <Loader />}
 
-                <div className='flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-center'>
+                <div className='flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-start'>
                     {coin && <CoinInfo coin={coin} />}
 
                     {coinHistory && <CoinHistoryChart history={coinHistory} />}

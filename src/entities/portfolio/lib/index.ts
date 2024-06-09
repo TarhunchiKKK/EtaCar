@@ -1,1 +1,1 @@
-export { portfolioSlice, addCoin } from './PortfolioSlice';
+export { portfolioSlice, addCoin } from './portfolioSlice';

@@ -1,16 +1,17 @@
-import { useDispatch } from 'react-redux';
-import { addCoin, ICoin } from '../../../../entities';
+import { ICoin } from '../../../../entities';
 import { CoinIcon } from '../../../../shared/components/CoinIcon';
 import { formatNumber } from '../../../../shared/helpers/formatNumber';
 import { Button } from '../../../../shared';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { ModalContext } from '../../../Modal';
 
 interface ITableRawProps {
     coin: ICoin;
 }
 
 export function TableRaw({ coin }: ITableRawProps) {
-    const dispatch = useDispatch();
+    const { openBuyCoinsModal } = useContext(ModalContext);
     const navigate = useNavigate();
 
     return (
@@ -39,7 +40,14 @@ export function TableRaw({ coin }: ITableRawProps) {
             </td>
 
             <td>
-                <Button content='Add' color='rgb(74 222 128)' handleClick={() => dispatch(addCoin(coin))} />
+                <Button
+                    content='Add'
+                    color='rgb(74 222 128)'
+                    handleClick={(e) => {
+                        e.stopPropagation();
+                        openBuyCoinsModal(coin);
+                    }}
+                />
             </td>
         </tr>
     );
