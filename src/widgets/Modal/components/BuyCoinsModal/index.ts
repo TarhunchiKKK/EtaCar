@@ -1,0 +1,1 @@
+export { BuyCoinsModal } from './BuyCoinsModal';

@@ -1,7 +1,7 @@
 import { useGetPopularCoinsQuery } from '../../entities';
 import { PopularCoinInfo, PortfolioInfo } from './components';
 
-export function Header() {
+function Header() {
     const { data: coins } = useGetPopularCoinsQuery();
     return (
         <header className='bg-indigo-700'>
@@ -17,3 +17,5 @@ export function Header() {
         </header>
     );
 }
+
+export { Header };
