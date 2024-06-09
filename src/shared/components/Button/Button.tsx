@@ -1,5 +1,5 @@
 interface IButtonProps {
-    handleClick: () => void;
+    handleClick: (e: React.MouseEvent) => void;
     content: string;
     color: string;
 }

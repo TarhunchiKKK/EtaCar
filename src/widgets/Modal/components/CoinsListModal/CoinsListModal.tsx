@@ -5,7 +5,7 @@ import { CoinsListItem } from './CoinsListItem';
 export function CoinsListModal() {
     const { coins, summary } = useAppSelector((state) => state.portfolio);
     return (
-        <div className='w-full h-full px-6 py-8'>
+        <div className='w-[300px] sm:w-[600px] lg:w-[800px] px-6 py-8'>
             <p className='mb-6'>
                 <span className='text-lg'>{'Summary: '}</span>
                 <span className='text-lg font-bold'>{formatNumber(summary, 5)}</span>

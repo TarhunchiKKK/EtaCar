@@ -22,14 +22,14 @@ export const portfolioSlice = createSlice({
     name: 'portfolio',
     initialState: getInitialState(),
     reducers: {
-        addCoin: (state, action: PayloadAction<ICoin>) => {
-            const coin = state.coins.find((c) => c.id === action.payload.id);
+        addCoin: (state, action: PayloadAction<ICoin & { count: number }>) => {
+            const coin = state.coins.find((c) => c.id === action.payload.id && c.priceUsd === action.payload.priceUsd);
             if (coin) {
-                coin.count += 1;
+                coin.count += action.payload.count;
             } else {
-                state.coins.push({ ...action.payload, count: 1 });
+                state.coins.push({ ...action.payload });
             }
-            state.summary += +action.payload.priceUsd;
+            state.summary += +action.payload.priceUsd * action.payload.count;
             localStorage.setItem(LOCALSTORAGE_PORTFOLIO_KEY, JSON.stringify(state.coins));
         },
         removeCoin: (state, action: PayloadAction<ICoin>) => {
