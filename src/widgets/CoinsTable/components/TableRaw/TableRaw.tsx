@@ -40,7 +40,14 @@ export function TableRaw({ coin }: ITableRawProps) {
             </td>
 
             <td>
-                <Button content='Add' color='rgb(74 222 128)' handleClick={() => openBuyCoinsModal(coin)} />
+                <Button
+                    content='Add'
+                    color='rgb(74 222 128)'
+                    handleClick={(e) => {
+                        e.stopPropagation();
+                        openBuyCoinsModal(coin);
+                    }}
+                />
             </td>
         </tr>
     );

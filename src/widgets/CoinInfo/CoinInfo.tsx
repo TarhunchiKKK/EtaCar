@@ -13,7 +13,7 @@ export function CoinInfo({ coin }: ICoinInfoProps) {
     const { openBuyCoinsModal } = useContext(ModalContext);
 
     return (
-        <div className='py-4 px-1 md:px-3 w-full md:w-[470px] md:h-screen rounded-b-xl shadow-xl'>
+        <div className='py-4 px-1 md:px-3 w-full md:w-[470px] md:h-[580px] lg:h-[700px] rounded-b-xl shadow-xl'>
             <div className='flex flex-col items-start gap-2 sm:gap-4'>
                 {/* Icon, name and symbol */}
                 <div className='flex flex-row items-center gap-2'>
