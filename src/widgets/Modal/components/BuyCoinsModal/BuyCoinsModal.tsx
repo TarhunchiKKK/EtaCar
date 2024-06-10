@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCoin, ICoin } from '../../../../entities';
 import { CoinIcon, formatNumber } from '../../../../shared';
+import { ModalContext } from '../../contexts';
 
 interface IBuyCoinsModalProps {
     coin: ICoin;
@@ -10,10 +11,12 @@ interface IBuyCoinsModalProps {
 export function BuyCoinsModal({ coin }: IBuyCoinsModalProps) {
     const [count, setCount] = useState<number>(1);
     const dispatch = useDispatch();
+    const { closeModal } = useContext(ModalContext);
 
     function handleSubmit(e: React.MouseEvent<HTMLFormElement>) {
         e.preventDefault();
         dispatch(addCoin({ ...coin, count }));
+        closeModal();
     }
 
     return (

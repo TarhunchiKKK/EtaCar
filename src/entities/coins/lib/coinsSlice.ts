@@ -6,7 +6,7 @@ const initialState: ICoinsState = {
     limit: 20,
     offset: 0,
     searchedCoins: '',
-    sortOrder: CoinsSortOrder.priceAsc,
+    sortOrder: CoinsSortOrder.PriceDesc,
     period: CoinHistoryPeriod.Day,
 };
 

@@ -15,7 +15,7 @@ export function Modal({ children }: IModalProps) {
                 onClick={() => closeModal()}
             ></div>
             <div
-                id='modal'
+                data-testid='modal'
                 className='fixed z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white'
             >
                 {children}

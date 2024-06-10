@@ -2,6 +2,7 @@ import { createContext, useMemo, useState } from 'react';
 import { Modal } from '../Modal';
 import { BuyCoinsModal, CoinsListModal } from '../components';
 import { ICoin } from '../../../entities';
+import { createPortal } from 'react-dom';
 
 const initialState = {
     openCoinsListModal: () => {},
@@ -49,7 +50,7 @@ export function ModalLayout({ children }: { children: JSX.Element | JSX.Element[
     return (
         <ModalContext.Provider value={contextValue}>
             {children}
-            {isOpen && <Modal>{getModal()}</Modal>}
+            {isOpen && createPortal(<Modal>{getModal()}</Modal>, document.body)}
         </ModalContext.Provider>
     );
 }
