@@ -1,8 +1,8 @@
 export enum CoinsSortOrder {
-    priceAsc = 'Price Ascending',
-    priceDesc = 'Price Descending',
-    marketCapAsc = 'Market Cap Ascending',
-    marketCapDesc = 'Market Cap Descending',
-    changeAsc = 'Change Ascending',
-    changeDesc = 'Change Descending',
+    PriceAsc = 'Price Ascending',
+    PriceDesc = 'Price Descending',
+    MarketCapAsc = 'Market Cap Ascending',
+    MarketCapDesc = 'Market Cap Descending',
+    ChangeAsc = 'Change Ascending',
+    ChangeDesc = 'Change Descending',
 }

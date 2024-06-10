@@ -17,8 +17,9 @@ function usePortfolioCostDifferences() {
                 newSummary += +newCoin.priceUsd * oldCoin.count;
             }
         }
+
         difference = newSummary - oldSummary;
-        percents = (newSummary - oldSummary) / oldSummary;
+        percents = (newSummary - oldSummary) / oldSummary || 0;
     }
 
     return { difference, percents };
