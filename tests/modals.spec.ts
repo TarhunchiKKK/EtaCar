@@ -1,5 +1,5 @@
 import test, { expect } from '@playwright/test';
-import { COINS_PAGE_URL, TIMEOUT } from '../constants';
+import { COINS_PAGE_URL, TIMEOUT } from './constants';
 
 test.describe('Modals', () => {
     test.beforeEach(async ({ page }) => {

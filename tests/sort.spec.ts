@@ -1,5 +1,5 @@
 import test, { expect } from '@playwright/test';
-import { COINS_PAGE_URL, TIMEOUT } from '../constants';
+import { COINS_PAGE_URL, TIMEOUT } from './constants';
 
 test.describe('Sorting', () => {
     test.beforeEach(async ({ page }) => {
@@ -11,9 +11,11 @@ test.describe('Sorting', () => {
     });
 
     test('Sort by price ascending', async ({ page }) => {
+        // change sort order
         await page.getByTestId('sort-dropdown').selectOption('Price Ascending');
         await page.waitForTimeout(TIMEOUT);
 
+        // get corresponding coins properties
         const values: number[] = [];
         const rows = page.locator('table tbody tr');
         for (const row of await rows.all()) {
@@ -22,15 +24,18 @@ test.describe('Sorting', () => {
             values.push(Number(value));
         }
 
+        // check is array sorted
         for (let i = 0; i < values.length - 1; i++) {
             expect(values[i]).toBeLessThanOrEqual(values[i + 1]);
         }
     });
 
     test('Sort by price descending', async ({ page }) => {
+        // change sort order
         await page.getByTestId('sort-dropdown').selectOption('Price Descending');
         await page.waitForTimeout(TIMEOUT);
 
+        // get corresponding coins properties
         const values: number[] = [];
         const rows = page.locator('table tbody tr');
         for (const row of await rows.all()) {
@@ -39,15 +44,18 @@ test.describe('Sorting', () => {
             values.push(Number(value));
         }
 
+        // check is array sorted
         for (let i = 0; i < values.length - 1; i++) {
             expect(values[i]).toBeGreaterThanOrEqual(values[i + 1]);
         }
     });
 
     test('Sort by market capitalization ascending', async ({ page }) => {
+        // change sort order
         await page.getByTestId('sort-dropdown').selectOption('Market Cap Ascending');
         await page.waitForTimeout(TIMEOUT);
 
+        // get corresponding coins properties
         const values: number[] = [];
         const rows = page.locator('table tbody tr');
         for (const row of await rows.all()) {
@@ -56,15 +64,18 @@ test.describe('Sorting', () => {
             values.push(Number(value));
         }
 
+        // check is array sorted
         for (let i = 0; i < values.length - 1; i++) {
             expect(values[i]).toBeLessThanOrEqual(values[i + 1]);
         }
     });
 
     test('Sort by market capitalization descending', async ({ page }) => {
+        // change sort order
         await page.getByTestId('sort-dropdown').selectOption('Market Cap Descending');
         await page.waitForTimeout(TIMEOUT);
 
+        // get corresponding coins properties
         const values: number[] = [];
         const rows = page.locator('table tbody tr');
         for (const row of await rows.all()) {
@@ -73,15 +84,18 @@ test.describe('Sorting', () => {
             values.push(Number(value));
         }
 
+        // check is array sorted
         for (let i = 0; i < values.length - 1; i++) {
             expect(values[i]).toBeGreaterThanOrEqual(values[i + 1]);
         }
     });
 
     test('Sort by change ascending', async ({ page }) => {
+        // change sort order
         await page.getByTestId('sort-dropdown').selectOption('Change Ascending');
         await page.waitForTimeout(TIMEOUT);
 
+        // get corresponding coins properties
         const values: number[] = [];
         const rows = page.locator('table tbody tr');
         for (const row of await rows.all()) {
@@ -90,15 +104,18 @@ test.describe('Sorting', () => {
             values.push(Number(value?.slice(0, -1)));
         }
 
+        // check is array sorted
         for (let i = 0; i < values.length - 1; i++) {
             expect(values[i]).toBeLessThanOrEqual(values[i + 1]);
         }
     });
 
     test('Sort by change descending', async ({ page }) => {
+        // change sort order
         await page.getByTestId('sort-dropdown').selectOption('Change Descending');
         await page.waitForTimeout(TIMEOUT);
 
+        // get corresponding coins properties
         const values: number[] = [];
         const rows = page.locator('table tbody tr');
         for (const row of await rows.all()) {
@@ -107,6 +124,7 @@ test.describe('Sorting', () => {
             values.push(Number(value?.slice(0, -1)));
         }
 
+        // check is array sorted
         for (let i = 0; i < values.length - 1; i++) {
             expect(values[i]).toBeGreaterThanOrEqual(values[i + 1]);
         }
