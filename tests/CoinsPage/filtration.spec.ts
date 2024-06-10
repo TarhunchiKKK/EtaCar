@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { COINS_PAGE_URL } from '../constants';
+import { COINS_PAGE_URL, TIMEOUT } from '../constants';
 
 test.describe('Filtration', () => {
     test.beforeEach(async ({ page }) => {
@@ -12,8 +12,9 @@ test.describe('Filtration', () => {
 
     test('Filtration', async ({ page }) => {
         const searchedValue: string = 'b';
+
         await page.getByPlaceholder('Coin name...').fill(searchedValue);
-        await page.waitForTimeout(3000);
+        await page.waitForTimeout(TIMEOUT);
 
         const rows = page.locator('table tbody tr');
         for (const row of await rows.all()) {

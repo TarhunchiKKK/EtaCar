@@ -13,6 +13,7 @@ export function PortfolioInfo() {
         <div
             onClick={() => openCoinsListModal()}
             className='bg-indigo-900 cursor-pointer min-h-[100%] px-3 py-2 flex flex-col justify-center items-start gap-2'
+            data-testid='portfolio-info'
         >
             <span className='text-xs sm:text-lg lg:text-xl text-white'>{`$${formatNumber(summary, 3)}`}</span>
             <span style={{ color: difference < 0 ? 'red' : 'green' }} className='text-xs sm:text-lg lg:text-xl'>
