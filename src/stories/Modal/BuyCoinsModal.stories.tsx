@@ -3,6 +3,7 @@ import { BuyCoinsModal } from '../../widgets/Modal/components';
 import { MockCoin } from '../mocks';
 
 const meta: Meta<typeof BuyCoinsModal> = {
+    title: 'Widgets/Modal/BuyCoinsModal',
     component: BuyCoinsModal,
 };
 export default meta;

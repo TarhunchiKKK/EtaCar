@@ -3,6 +3,7 @@ import { CoinPropertiesList } from "../../widgets/CoinInfo/components";
 import { MockCoin } from "../mocks";
 
 const meta: Meta<typeof CoinPropertiesList> = {
+    title: 'Widgets/CoinInfo/CoinPropertiesList',
     component: CoinPropertiesList,
 };
 export default meta;

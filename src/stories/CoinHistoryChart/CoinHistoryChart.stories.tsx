@@ -3,8 +3,8 @@ import { CoinHistoryChart } from "../../widgets";
 import { MockHistory } from "../mocks/history";
 
 const meta: Meta<typeof CoinHistoryChart> = {
+    title: 'Widgets/CoinHistoryChart/CoinHistoryChart',
     component: CoinHistoryChart,
-    title: 'Stories/CoinHistoryChart/CoinHistoryChart'
 };
 export default meta;
 
@@ -18,5 +18,5 @@ export const Default: Story = {
         <div style={{ margin: 'auto' }}>
             <CoinHistoryChart {...args} />
         </div>
-    )
+    ),
 };

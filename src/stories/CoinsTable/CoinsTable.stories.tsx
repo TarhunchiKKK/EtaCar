@@ -3,6 +3,7 @@ import { CoinsTable } from '../../widgets';
 import { MockCoins } from '../mocks';
 
 const meta: Meta<typeof CoinsTable> = {
+    title: 'Widgets/CoinsTable/CoinsTable',
     component: CoinsTable,
 };
 export default meta;
@@ -17,5 +18,5 @@ export const Default: Story = {
         <div style={{ margin: 'auto', maxWidth: '90%' }}>
             <CoinsTable {...args} />
         </div>
-    )
+    ),
 };

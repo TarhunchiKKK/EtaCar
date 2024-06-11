@@ -3,10 +3,11 @@ import { Button } from '../../shared';
 import { fn } from '@storybook/test';
 
 const meta: Meta<typeof Button> = {
+    title: 'Components/Button',
     component: Button,
     args: {
-        handleClick: fn()
-    }
+        handleClick: fn(),
+    },
 };
 export default meta;
 
@@ -15,23 +16,23 @@ type Story = StoryObj<typeof meta>;
 export const AddButton: Story = {
     args:{
         content: 'Add',
-        color: 'rgb(74 222 128)'
+        color: 'rgb(74 222 128)',
     },
     render: (args) => (
         <div style={{ margin: 'auto', width: '100px' }}>
             <Button {...args} />
         </div>
-    )
-}
+    ),
+};
 
 export const BackButton: Story = {
     args: {
         content: 'Back',
-        color: 'rgb(67 56 202)'
+        color: 'rgb(67 56 202)',
     },
     render: (args) => (
         <div style={{ margin: 'auto', width: '100px' }}>
             <Button {...args} />
         </div>
-    )
-}
+    ),
+};

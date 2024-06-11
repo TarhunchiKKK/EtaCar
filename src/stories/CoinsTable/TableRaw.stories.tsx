@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { MockCoin } from '../mocks';
 
 const meta: Meta<typeof TableRaw> = {
+    title: 'Widgets/CoinsTable/TableRaw',
     component: TableRaw,
 };
 export default meta;
@@ -17,5 +18,5 @@ export const Default: Story = {
         <table style={{width: '100%'}}>
             <TableRaw {...args} />
         </table>
-    )
+    ),
 };

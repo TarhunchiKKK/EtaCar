@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { LimitDropdown } from '../../widgets/CoinsFilterBar/components';
 
 const meta: Meta<typeof LimitDropdown> = {
+    title: 'Widgets/CoinsFilterBar/LimitDropdown',
     component: LimitDropdown,
 };
 export default meta;
@@ -13,5 +14,5 @@ export const Default: Story = {
         <div style={{ margin: 'auto', width: 'min-content' }}>
             <LimitDropdown />
         </div>
-    )
+    ),
 };

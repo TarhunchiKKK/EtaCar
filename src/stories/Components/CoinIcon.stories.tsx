@@ -3,6 +3,7 @@ import { CoinIcon } from '../../shared';
 import { MockCoin } from '../mocks';
 
 const meta: Meta<typeof CoinIcon> = {
+    title: 'Components/CoinIcon',
     component: CoinIcon,
 };
 export default meta;
@@ -17,5 +18,5 @@ export const Default: Story = {
         <div style={{ margin: 'auto', width: 'min-content' }}>
             <CoinIcon {...args} />
         </div>
-    )
+    ),
 };

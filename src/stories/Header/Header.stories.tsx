@@ -4,6 +4,7 @@ import { http, HttpResponse, } from 'msw';
 import { MockPopularCoins } from '../mocks';
 
 const meta: Meta<typeof Header> = {
+    title: 'Widgets/Header/Header',
     component: Header,
 }
 export default meta;
@@ -16,8 +17,8 @@ export const Default: Story = {
             handlers: [
                 http.get('https://api.coincap.io/v2/assets?limit=3', () => {
                     return HttpResponse.json(MockPopularCoins)
-                })
-            ]
-        }
+                }),
+            ],
+        },
     },
-}
+};

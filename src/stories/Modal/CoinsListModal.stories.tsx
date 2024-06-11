@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { CoinsListModal } from '../../widgets/Modal/components';
 
 const meta: Meta<typeof CoinsListModal> = {
+    title: 'Widgets/Modal/CoinsListModal',
     component: CoinsListModal,
 };
 export default meta;
@@ -13,5 +14,5 @@ export const Defaukt: Story = {
         <div style={{ margin: 'auto', width: 'max-content' }}>
             <CoinsListModal />
         </div>
-    )
+    ),
 };

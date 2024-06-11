@@ -3,6 +3,7 @@ import { PopularCoinInfo } from '../../widgets/Header/components';
 import { MockCoin } from '../mocks';
 
 const meta: Meta<typeof PopularCoinInfo> = {
+    title: 'Widgets/Header/PopularCoinInfo',
     component: PopularCoinInfo,
 };
 export default meta;
@@ -17,5 +18,5 @@ export const Default: Story = {
         <div style={{ margin: 'auto', width: 'min-content' }}>
             <PopularCoinInfo {...args} />
         </div>
-    )
+    ),
 };

@@ -10,6 +10,7 @@ export function CoinsPage() {
     const { limit, offset } = useAppSelector((state) => state.coins);
     const { data: coinsCount } = useGetCoinsCountQuery();
     const { data: coins, isLoading, isFetching } = useGetCoinsQuery({ limit, offset });
+
     return (
         <>
             <section className='mb-8'>

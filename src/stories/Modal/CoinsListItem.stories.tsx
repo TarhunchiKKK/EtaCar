@@ -3,6 +3,7 @@ import { CoinsListItem } from '../../widgets/Modal/components/CoinsListModal/Coi
 import { MockCoin } from '../mocks';
 
 const meta: Meta<typeof CoinsListItem> = {
+    title: 'Widgets/Modal/CoinsListItem',
     component: CoinsListItem,
 };
 export default meta;
