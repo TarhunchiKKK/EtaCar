@@ -9,7 +9,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Simpe: Story = {
+export const Default: Story = {
     args: {
         coin: { ...MockCoin, count: 5 },
     },

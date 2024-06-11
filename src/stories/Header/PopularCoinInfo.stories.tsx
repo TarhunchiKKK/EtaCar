@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { CoinIcon } from '../../shared';
+import { PopularCoinInfo } from '../../widgets/Header/components';
 import { MockCoin } from '../mocks';
 
-const meta: Meta<typeof CoinIcon> = {
-    component: CoinIcon,
+const meta: Meta<typeof PopularCoinInfo> = {
+    component: PopularCoinInfo,
 };
 export default meta;
 
@@ -11,6 +11,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        rank: MockCoin.rank,
+        coin: MockCoin,
     },
 };
