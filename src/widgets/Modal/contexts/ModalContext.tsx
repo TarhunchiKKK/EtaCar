@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom';
 
 const initialState = {
     openCoinsListModal: () => {},
-    openBuyCoinsModal: (coin: ICoin) => {},
+    openBuyCoinsModal: (_: ICoin) => {},
     closeModal: () => {},
 };
 
