@@ -13,4 +13,9 @@ export const Default: Story = {
     args: {
         rank: MockCoin.rank,
     },
+    render: (args) => (
+        <div style={{ margin: 'auto', width: 'min-content' }}>
+            <CoinIcon {...args} />
+        </div>
+    )
 };

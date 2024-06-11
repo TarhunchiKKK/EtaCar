@@ -13,4 +13,9 @@ export const Default: Story = {
     args: {
         coin: { ...MockCoin, count: 5 },
     },
+    render: (args) => (
+       <div style={{ margin: 'auto', maxWidth: '400px' }}>
+            <CoinsListItem {...args} />
+       </div>
+    ),
 };

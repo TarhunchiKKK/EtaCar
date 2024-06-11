@@ -13,4 +13,9 @@ export const Default: Story = {
     args: {
         coin: MockCoin,
     },
+    render: (args) => (
+        <div style={{ margin: 'auto', width: 'min-content' }}>
+            <PopularCoinInfo {...args} />
+        </div>
+    )
 };
