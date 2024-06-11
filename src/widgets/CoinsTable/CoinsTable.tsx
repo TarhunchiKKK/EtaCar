@@ -9,7 +9,7 @@ interface ICoinsTableProps {
 
 export function CoinsTable({ coins }: ICoinsTableProps) {
     const { searchedCoins, sortOrder } = useAppSelector((state) => state.coins);
-
+    console.log(coins)
     return (
         <table className='w-full'>
             <thead>
