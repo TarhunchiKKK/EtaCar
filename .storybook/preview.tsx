@@ -4,8 +4,8 @@ import '../src/index.css';
 import { Provider }  from 'react-redux';
 import { store } from '../src/app/index'
 import {  ModalLayout } from '../src/widgets/Modal';
-import { BrowserRouter } from 'react-router-dom';
 import { initialize, mswLoader } from 'msw-storybook-addon';
+import { reactRouterParameters, withRouter } from 'storybook-addon-remix-react-router';
 
 initialize();
 
@@ -17,18 +17,27 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
+        reactRouter: reactRouterParameters({
+            location: {
+                pathParams: {
+                    id: 'bitcoin',
+                },
+            },
+            routing: {
+                path: 'coins/:id',
+            },
+        }),
     },
     tags: ['autodocs'],
     decorators: [
         (Story) => (
             <Provider store={store}>
-                <BrowserRouter>
-                    <ModalLayout>
-                        <Story/>
-                    </ModalLayout>
-                </BrowserRouter>
+                <ModalLayout>
+                    <Story/>
+                </ModalLayout>
             </Provider>
-        )
+        ),
+        withRouter,
     ],
     loaders:[mswLoader],
 };
