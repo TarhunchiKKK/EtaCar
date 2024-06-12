@@ -13,7 +13,7 @@ export const coinsApi = createApi({
         baseUrl: `${API_URL}/assets`,
     }),
 
-    refetchOnFocus: true,
+    // refetchOnFocus: true,
 
     endpoints: (builder) => ({
         getCoins: builder.query<ICoin[], IGetCoinsQueryArgument>({

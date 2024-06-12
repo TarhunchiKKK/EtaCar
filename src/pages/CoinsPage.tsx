@@ -30,6 +30,8 @@ export function CoinsPage() {
                             breakLabel='...'
                             nextLabel='>'
                             previousLabel='<'
+                            pageClassName='py-1 px-3'
+                            activeClassName='bg-gray-300 rounded-md'
                             pageCount={Math.floor(coinsCount / limit)}
                             pageRangeDisplayed={4}
                             onPageChange={(e) => dispatch(setOffset(e.selected * limit))}

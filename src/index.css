@@ -7,3 +7,10 @@
         @apply py-3;
     }
 }
+
+@layer components {
+    .no-scroll-bar::-webkit-scrollbar {
+        width: 0;
+        display: none;
+    }
+}
